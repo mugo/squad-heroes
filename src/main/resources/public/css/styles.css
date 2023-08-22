@@ -1,0 +1,11 @@
+h1{
+ text-align: center;
+}
+.warriors{
+  display: inline-block;
+  padding 3%;
+}
+img{
+    padding 3%;
+ border-radius: 15%;
+}

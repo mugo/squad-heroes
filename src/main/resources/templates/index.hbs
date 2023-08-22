@@ -1,0 +1,14 @@
+{{#partial "content"}}
+
+    <h1> The Ronnin Order</h1>
+
+    {{#if heroes}}
+      {{#each heroes }}
+          <p><a href="/squads/{{squad_id}}/heroes/{{id}}">{{name}}</a></p>
+      {{/each}}
+    {{else}}
+        <p>No heroes!</p>
+    {{/if}}
+{{/partial}}
+
+{{> layout.hbs}}

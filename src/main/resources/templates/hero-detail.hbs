@@ -1,0 +1,21 @@
+{{#partial "content"}}
+
+    <h2>{{ hero.name }}</h2>
+    <h3>{{ squad.name }}</h3>
+    <p><h3>Age:</h3>{{ hero.age }} years</p>
+    <br>
+    <p><h3>Hero's Quest:</h3>{{ hero.origin_story }}</p>
+    <br>
+    <p><h3>Powers:</h3>{{ hero.powers }}</p>
+    <br>
+    <p><h3>Weaknesses:</h3>{{ hero.weaknesses }}</p>
+    <br>
+
+    <p>
+        <a href="/heroes/{{hero.id}}/edit">Edit {{ hero.name }}</a><br>
+        <a href="/squads/{{hero.squad_id}}/heroes/{{hero.id}}/delete">DELETE {{ hero.name }}</a>
+    </p>
+
+{{/partial}}
+
+{{> layout.hbs}}

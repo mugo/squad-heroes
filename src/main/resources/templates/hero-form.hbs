@@ -1,0 +1,67 @@
+{{#partial "content"}}
+
+  {{#if editHero}}
+      <h1>Edit this Hero!</h1>
+      <form action="/heroes/{{hero.id}}" method="post">
+          <br>
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" value="{{hero.name}}" class="form-control">
+          <br>
+          <label for="age">Age</label>
+          <input id="age" name="age" type="number" value="{{hero.age}}" class="form-control">
+          <br>
+          <label for="origin_story">Origin Story</label>
+          <textarea id="origin_story" name="origin_story" type="text" value="{{hero.origin_story}}" class="form-control"></textarea>
+          <br>
+          <label for="powers">Powers</label>
+          <textarea id="powers" name="powers" type="text" value="{{hero.powers}}" class="form-control"></textarea>
+          <br>
+          <label for="weaknesses">Weaknesses</label>
+          <textarea id="weaknesses" name="weaknesses" type="text" value="{{hero.weaknesses}}" class="form-control"></textarea>
+          <br>
+          <label for="squad_id">Update this hero's squad:</label>
+          <select id="squad_id" name="squad_id" class="form-control">
+            {{#each squads}}
+                <option value="{{id}}">{{name}}</option>
+            {{/each}}
+          </select>
+          <p>Don't see the right squad?<a href="/squads/new">Add a new one first.</a></p>
+          <button type="submit" class="btn btn-default">Attack!!</button>
+      </form>
+  {{else}}
+      <h2>Add a new Hero!</h2>
+
+      <form action="/heroes" method="post">
+        {{#if squads}}
+            <br>
+            <label for="name">Hero Identity</label>
+            <input id="name" name="name" type="text" class="form-control">
+            <br>
+            <label for="age">Age</label>
+            <input id="age" name="age" type="number" class="form-control">
+            <br>
+            <label for="origin_story">Origin Story</label>
+            <textarea id="origin_story" name="origin_story" type="text" class="form-control"></textarea>
+            <br>
+            <label for="powers">Powers</label>
+            <input id="powers" name="powers" type="text" class="form-control">
+            <br>
+            <label for="weaknesses">Weaknesses</label>
+            <input id="weaknesses" name="weaknesses" type="text" class="form-control">
+            <br>
+            <label for="squad_id">In what Squad does hero belong?</label>
+            <select id="squad_id" name="squad_id" class="form-control">
+              {{#each squads}}
+                  <option value="{{id}}">{{name}}</option>
+              {{/each}}
+            </select>
+            <p>Don't see the right squad?<a href="/squads/new">Add a new one first.</a></p>
+        {{else}}
+            <h3> You'll need to add a squad before you add a hero. <a href="/squads/new">Add one here.</a> </h3>
+        {{/if}}
+          <button type="submit" class="btn btn-default">Attack!!</button>
+      </form>
+  {{/if}}
+{{/partial}}
+
+{{> layout.hbs}}
